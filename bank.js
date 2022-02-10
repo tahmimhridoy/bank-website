@@ -20,3 +20,28 @@ document.getElementById('deposit-button').addEventListener('click', function(){
     // clear input after deposit
     depositInput.value = '';
 })
+
+
+// withdraw calculation
+document.getElementById('withdraw-button').addEventListener('click', function(){
+    
+    const withdrawInput = document.getElementById('withdraw-input');
+    const withdrawAmountText = withdrawInput.value;
+    const withdrawAmout = parseFloat(withdrawAmountText);
+    
+    const withdrawTotal = document.getElementById('withdraw-total');
+    const withdrawTotalText = withdrawTotal.innerText;
+    const previousWithdrawTotal = parseFloat(withdrawTotalText);
+    
+    withdrawTotal.innerText = previousWithdrawTotal + withdrawAmout;
+
+    // update current balance
+    const balanceTotal = document.getElementById('balance-total');
+    const balanceTotalText = balanceTotal.innerText;
+    const previousBalanceTotal = parseFloat(balanceTotalText);
+
+    balanceTotal.innerText = previousBalanceTotal - withdrawAmout;
+
+    // clear input after withdraw
+    withdrawInput.value = '';
+})
